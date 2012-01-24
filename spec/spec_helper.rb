@@ -1,18 +1,8 @@
-# Inspiration gained from Thinking Sphinx's test suite via Ryan Bigg's by_star test suite.
-
-$:.unshift File.dirname(__FILE__) + '/../lib'
-
 require 'rubygems'
-require 'activerecord'
-require 'rangetastic'
-require 'spec/fixtures/models'
-require 'spec/test_helper'
+require 'bundler'
 
-FileUtils.mkdir_p "#{Dir.pwd}/tmp"
+Bundler.require :default, :development
 
-ActiveRecord::Base.logger = Logger.new(StringIO.new)
+Dir["spec/support/**/*.rb"].each {|f| require f}
 
-Spec::Runner.configure do |config|  
-  test = TestHelper.new
-  test.setup_postgresql
-end
+Combustion.initialize! :active_record

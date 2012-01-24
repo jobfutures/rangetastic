@@ -1,9 +1,22 @@
-require 'spec/spec_helper'
-require 'rangetastic'
-include Rangetastic
+require 'spec_helper'
 
 describe Order do
+  before do
+    Order.delete_all
+    
+    10.times do
+      Order.create(:ordered_on => 2.weeks.ago, :fulfilled_on => 2.days.ago)
+    end
 
+    10.times do
+      Order.create(:ordered_on => 3.weeks.ago, :fulfilled_on => 2.days.ago)
+    end
+    
+    5.times do
+      Order.create(:ordered_on => 1.weeks.ago, :fulfilled_on => 2.days.ago)
+    end
+  end
+  
   it "should have 25 orders" do
     Order.count.should == 25
   end

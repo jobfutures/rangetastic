@@ -24,11 +24,8 @@ Gem::Specification.new do |s|
      "VERSION",
      "lib/rangetastic.rb",
      "rangetastic.gemspec",
-     "spec/fixtures/models.rb",
-     "spec/fixtures/structure.sql",
      "spec/rangetastic_spec.rb",
      "spec/spec_helper.rb",
-     "spec/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/cherring/rangetastic}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -36,23 +33,15 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Simple filtering by date ranges for ActiveRecord}
   s.test_files = [
-    "spec/fixtures/models.rb",
      "spec/rangetastic_spec.rb",
      "spec/spec_helper.rb",
-     "spec/test_helper.rb"
   ]
-
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
-
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
-    else
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
-    end
-  else
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
-  end
+  
+  s.add_dependency "rails", "3.1.2"
+  s.add_development_dependency "jeweler"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "ruby-debug"
+  s.add_development_dependency "combustion", '~> 0.3.1'
+  s.add_development_dependency "sqlite3"
 end
 
