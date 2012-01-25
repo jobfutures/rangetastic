@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb",
   ]
   
-  s.add_dependency "rails", "3.1.2"
+  s.add_dependency "rails", ">=3.1.2"
   s.add_development_dependency "jeweler"
   s.add_development_dependency "rspec"
   s.add_development_dependency "ruby-debug"
